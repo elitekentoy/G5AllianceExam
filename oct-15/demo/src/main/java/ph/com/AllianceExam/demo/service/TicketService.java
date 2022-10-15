@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
+
 import ph.com.AllianceExam.demo.entity.Ticket;
 import ph.com.AllianceExam.demo.repository.ITicketRepository;
 
@@ -21,7 +22,13 @@ public class TicketService implements ITicketService {
 	
 	public TicketService(final ITicketRepository repository) {
 		this.repository = repository;
+		this.gson = new Gson();
 	}
+
+	public String retreiveByID(int id) {
+		return gson.toJson(repository.retreiveTicketByID(id));
+	}
+
 	
 	public int create(final BufferedReader body)
 	{
@@ -30,4 +37,11 @@ public class TicketService implements ITicketService {
 		
 		return repository.create(user);
 	}
+
+
+	public String retreiveAllTickets() {
+		return gson.toJson(repository.retreiveAllTickets());
+	}
+	
+	
 }

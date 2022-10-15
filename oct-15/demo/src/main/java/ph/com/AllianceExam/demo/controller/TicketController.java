@@ -6,7 +6,12 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.PostMapping;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import ph.com.AllianceExam.demo.service.ITicketService;
@@ -30,5 +35,16 @@ public class TicketController {
 		return service.create(body);
 	}
 	
+
+	@RequestMapping("ticket/{id}")
+	public String retreiveTicketsByID(@PathVariable final int id) {
+		return service.retreiveByID(id);
+	}
+	
+	@RequestMapping("ticket/all")
+	public String retrieveAllTickets() {
+		return service.retreiveAllTickets();
+	}
+
 
 }
