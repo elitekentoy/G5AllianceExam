@@ -8,6 +8,17 @@ public class Ticket {
 	private String description;
 	private String tracker;
 	
+	public Ticket() {}
+	
+	public Ticket(final int ticketID, final String assignee, final String status, final String subject, final String description, final String tracker){
+		this.ticketID = ticketID;
+		this.assignee = assignee;
+		this.status = status;
+		this.subejct = subject;
+		this.description = description;
+		this.tracker = tracker;
+		
+	}
 	
 	public int getTicketID() {
 		return ticketID;

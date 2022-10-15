@@ -1,8 +1,14 @@
 package ph.com.AllianceExam.demo.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import ph.com.AllianceExam.demo.entity.Ticket;
 
 @Repository
 
@@ -11,6 +17,26 @@ public class TicketRepository implements ITicketRepository {
 	@Autowired 
 	
 	private JdbcTemplate template;
+
+	public Ticket retreiveTicketByID(final int id) {
+		
+		try {
+		final String sql = "Select * from ticketmodule where ticketID=?";
+		final Ticket ticket = template.queryForObject(sql, BeanPropertyRowMapper.newInstance(Ticket.class), id);
+		
+		return ticket;
+		}catch(EmptyResultDataAccessException e) {
+			return new Ticket(0, "", "" , "", "" , "");
+		}
+		
+	}
+
+	public List<Ticket> retreiveAllTickets() {
+		final String sql = "select * from ticketmodule";
+		final List<Ticket> ticket = template.query(sql,BeanPropertyRowMapper.newInstance(Ticket.class));
+		
+		return ticket;
+	}
 	
 	
 }
