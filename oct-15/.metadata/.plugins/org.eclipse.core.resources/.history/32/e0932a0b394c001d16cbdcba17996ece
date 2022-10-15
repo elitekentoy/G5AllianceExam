@@ -1,0 +1,25 @@
+package ph.com.AllianceExam.demo.repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository
+
+public class TicketRepository implements ITicketRepository {
+
+	@Autowired 
+	
+	private JdbcTemplate template;
+	
+	
+}
+
+public int updateByID(final Ticket user)
+{
+
+	final String sql = "UPDATE Ticket SET ticketID=?, assignee=?, status=?, subject=?, description=?, tracker=? WHERE ticketID=?";
+	final int result = template.update(sql, user.getTicketID(), user.getAssignee(), user.getStatus(), user.getSubject(), user.getDescription(), user.getTracker());
+	
+	return result;
+}

@@ -1,0 +1,39 @@
+package ph.com.AllianceExam.demo.service;
+
+import java.io.BufferedReader;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import junit.framework.Test;
+import ph.com.AllianceExam.demo.entity.Ticket;
+import ph.com.AllianceExam.demo.repository.ITicketRepository;
+
+
+@Service
+public class TicketService implements ITicketService {
+	
+	private ITicketRepository repository;
+	
+	@Autowired
+	
+	public TicketService(final ITicketRepository repository) {
+		this.repository = repository;
+	}
+
+
+public int updateByID(final Ticket ticket)
+{
+	return repository.updateByID(ticket);
+}
+
+
+@Override
+public int updateByID(BufferedReader ticket) {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+
+}
+
