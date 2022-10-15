@@ -10,9 +10,21 @@ public class TicketService implements ITicketService {
 	
 	private ITicketRepository repository;
 	
+	
 	@Autowired
 	
 	public TicketService(final ITicketRepository repository) {
 		this.repository = repository;
+		
 	}
+	
+	
+	
+	   public int deleteByID(final int id)
+	    {
+	        return repository.deleteByID(id);
+	    }
+
+
+
 }
