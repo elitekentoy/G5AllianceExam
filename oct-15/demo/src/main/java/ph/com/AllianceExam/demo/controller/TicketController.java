@@ -21,13 +21,12 @@ public class TicketController {
 	public TicketController(final ITicketService service) {
 	}
 	
-	@PostMapping("/ticketID")
+	@PostMapping("/ticket/{id}")
 	public int save(final HttpServletRequest request) throws IOException
 	{
-		// the reader is where the body is found we then pass this to the service so it'll be processed there
+		
 		final BufferedReader body = request.getReader();
 		
-		//No exception handling is provided in this demo. Please DIY :)
 		return service.create(body);
 	}
 	
