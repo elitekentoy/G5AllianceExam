@@ -28,7 +28,6 @@ public class TicketController {
 	@Autowired
 	
 	public TicketController(final ITicketService service) {
-		this.service = service;
 	}
 	
 
@@ -50,6 +49,7 @@ public class TicketController {
 	}
 
 
+	
 	@PostMapping("/ticket/{id}")
 	public int save(final HttpServletRequest request) throws IOException
 	{

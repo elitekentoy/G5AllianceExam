@@ -28,7 +28,6 @@ public class TicketController {
 	@Autowired
 	
 	public TicketController(final ITicketService service) {
-		this.service = service;
 	}
 	
 

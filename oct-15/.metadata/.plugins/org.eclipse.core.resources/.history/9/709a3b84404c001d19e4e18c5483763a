@@ -28,13 +28,13 @@ public class TicketController {
 	@Autowired
 	
 	public TicketController(final ITicketService service) {
-		this.service = service;
 	}
 	
-
-	@RequestMapping("ticket/all")
-	public String retrieveAllTickets() {
-		return service.retreiveAllTickets();
+	@PostMapping("/ticket/{id}")
+	public int save(final HttpServletRequest request) throws IOException
+	{
+		final BufferedReader body = request.getReader();
+		return service.create(body);
 	}
 	
 
@@ -50,11 +50,9 @@ public class TicketController {
 	}
 
 
-	@PostMapping("/ticket/{id}")
-	public int save(final HttpServletRequest request) throws IOException
-	{
-		final BufferedReader body = request.getReader();
-		return service.create(body);
+	@RequestMapping("ticket/all")
+	public String retrieveAllTickets() {
+		return service.retreiveAllTickets();
 	}
 
 
