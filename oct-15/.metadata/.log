@@ -97,3 +97,15 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-15 09:05:24.202
 !MESSAGE Could not determine target level, using default 1.5
+
+!ENTRY org.eclipse.jface.text 2 0 2022-10-15 10:07:05.001
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2022-10-15 10:07:05.017
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2022-10-15 10:07:05.151
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2022-10-15 10:07:05.152
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

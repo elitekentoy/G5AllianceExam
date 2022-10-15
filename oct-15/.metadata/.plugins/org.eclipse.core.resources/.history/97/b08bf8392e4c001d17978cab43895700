@@ -1,0 +1,19 @@
+package ph.com.AllianceExam.demo.entity;
+
+public class Ticket {
+    private int ticketID;
+	private String assignee;
+	private String status;
+	private String subejct;
+	private String description;
+	private String tracker;
+	public int getTicketID() {
+		return ticketID;
+	}
+	public void setTicketID(int ticketID) {
+		this.ticketID = ticketID;
+	}
+	
+	
+	
+}
