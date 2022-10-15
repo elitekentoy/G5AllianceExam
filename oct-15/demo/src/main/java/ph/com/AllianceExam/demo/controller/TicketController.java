@@ -48,14 +48,23 @@ public class TicketController {
 	{		
 		return service.deleteByID(id);
 	}
-
-
+	
 	@PostMapping("/ticket/{id}")
+	public int udpateByID(final HttpServletRequest request) throws IOException
+	{
+		final BufferedReader body = request.getReader();
+		return service.updateByID(body);
+	}
+
+
+	@PostMapping("/tickets/{id}")
 	public int save(final HttpServletRequest request) throws IOException
 	{
 		final BufferedReader body = request.getReader();
 		return service.create(body);
 	}
+	
+
 
 
 }

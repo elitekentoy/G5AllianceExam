@@ -47,4 +47,11 @@ public class TicketService implements ITicketService {
 		return gson.toJson(repository.retreiveAllTickets());
 	}
 	
+	public int updateByID(final BufferedReader body)
+	{
+		final Ticket ticket = gson.fromJson(body, Ticket.class);
+		return repository.updateByID(ticket);
+	}
+
+	
 }

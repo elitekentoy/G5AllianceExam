@@ -9,4 +9,5 @@ public interface ITicketRepository {
 	public List<Ticket> retreiveAllTickets();
   public int create(final Ticket ticket);
   public int deleteByID(final int id);
+  public int updateByID(final Ticket ticket);
 }
