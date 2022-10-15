@@ -18,11 +18,16 @@ public class TicketService implements ITicketService {
 	private ITicketRepository repository;
 	private Gson gson;
 	
+	
 	@Autowired
 	
 	public TicketService(final ITicketRepository repository) {
 		this.repository = repository;
 		this.gson = new Gson();
+	}
+  
+  public int deleteByID(final int id){
+	  return repository.deleteByID(id);
 	}
 
 	public String retreiveByID(int id) {
@@ -32,7 +37,6 @@ public class TicketService implements ITicketService {
 	
 	public int create(final BufferedReader body)
 	{
-		//from just a simple requestBody, we transform it to a class using fromJson
 		final Ticket user = gson.fromJson(body, Ticket.class);
 		
 		return repository.create(user);
@@ -42,6 +46,5 @@ public class TicketService implements ITicketService {
 	public String retreiveAllTickets() {
 		return gson.toJson(repository.retreiveAllTickets());
 	}
-	
 	
 }
